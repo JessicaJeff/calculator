@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <script src="./main.js" defer></script>
 </head>
 <body>
 <link
@@ -14,12 +15,12 @@ href="calculatorstyle.css"
     <h1> This is a calculator</h1>
 
 <!-- THE calculator -->
-    <div> <input Id="calculator-screen" type="text" class="calculator-screen" value="" disabled/>
+    <div Id="calculator-screen" type="text" class="calculator-screen" >
     </div> 
 
 <!-- calculator buttons --> 
     <div class="calculator-buttons" id="calculator-buttons">
-      <button type="button" value="1">1</button>
+      <button type="button" value="1" id="1">1</button>
       <button type="button" value="2">2</button>
       <button type="button" value="3">3</button>
       <button type="button" value="4">4</button>
@@ -39,6 +40,6 @@ href="calculatorstyle.css"
       <button type="button" class="all-clear" value="all-clear">Clear</button>
     </div>
 
-    
+
 </body>
 </html>
