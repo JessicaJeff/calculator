@@ -21,14 +21,52 @@ for (let index = 0; index < allButtons.length; index++) {
   })
 }
 
+function calculateResult(array) {
+  // ["1", "+", "1"]
+  const operatorRegex = /[\+\-\*\/]/g
+  // "1+1"
+  const operationString = array.join("");
+
+  const operator = operationString.match(operatorRegex); // ["+"]
+  const newArray = operationString.split(operatorRegex); // ["1", "1"]
+  
+  let result = 0;
+  for(let i = 1; i < newArray.length; i++) {
+    const currentString = newArray[i];
+
+    switch(operator[0]) {
+      case '+':
+        result = parseInt(newArray[i-1]) + parseInt(currentString);
+        break;
+
+      case '-':
+        result = parseInt(newArray[i-1]) - parseInt(currentString);
+        break;
+
+      case '*':
+        result = parseInt(newArray[i-1]) * parseInt(currentString);
+        break;
+
+      case '/':
+        result = parseInt(newArray[i-1]) / parseInt(currentString);
+        break; 
+
+      default:
+        return;
+    }
+  }
+
+  screen.innerText += ` = ${result}`; // interpolated string
+}
 
 // operators 
 for (let number = 0; number < operators.length; number++) {
   const currentOperator = operators[number] 
-
+  
+// when operator is clicked, check if its =
   currentOperator.addEventListener("click", () => {
     if (currentOperator.value === "="){
-      return console.log(screenHistory)  
+      return calculateResult(screenHistory);  
     }
 
     screen.innerText += currentOperator.value
@@ -38,9 +76,6 @@ for (let number = 0; number < operators.length; number++) {
 
 
 
-// clear the screen 
-// change dont add 
-// 1 + 1 =
-// [1, 1]
 
-// when operator is clicked, check if its =
+
+
