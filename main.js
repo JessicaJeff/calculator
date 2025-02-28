@@ -1,3 +1,7 @@
+// Initialise an array
+let screenHistory = [];
+
+
 // find number buttons 
 const allButtons = document.getElementsByClassName("number")
 // find calculatorscreen
@@ -13,7 +17,7 @@ for (let index = 0; index < allButtons.length; index++) {
   currentButton.addEventListener("click", () => {
     // screen.innerText = screen.innerText.concat(currentButton.value)
     screen.innerText += currentButton.value
-    screenhistory.push(currentButton.value);
+    screenHistory.push(currentButton.value)
   })
 }
 
@@ -23,22 +27,20 @@ for (let number = 0; number < operators.length; number++) {
   const currentOperator = operators[number] 
 
   currentOperator.addEventListener("click", () => {
+    if (currentOperator.value === "="){
+      return console.log(screenHistory)  
+    }
+
     screen.innerText += currentOperator.value
-    screenhistory.push(currentOperator.value);
+    screenHistory.push(currentOperator.value)
   })
 }
 
-//Save previous value in an array
-let screenhistory = [];
 
 
-
-
-
-
-    // clear the screen 
-    // change dont add 
-
+// clear the screen 
+// change dont add 
 // 1 + 1 =
 // [1, 1]
 
+// when operator is clicked, check if its =
